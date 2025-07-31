@@ -68,7 +68,7 @@ function App() {
         </Box>
       ) : (
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={4} justifyContent="center">
+          {/* <Grid container spacing={4} justifyContent="center">
             {projects.map((project) => (
               <Grid item key={project.id} xs={12} sm={6} md={4}>
                 <ProjectCard
@@ -81,7 +81,38 @@ function App() {
                 />
               </Grid>
             ))}
-          </Grid>
+          </Grid> */}
+<Box
+  sx={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 4, // spacing between cards
+  }}
+>
+  {projects.map((project) => (
+    <Box
+      key={project.id}
+      sx={{
+        width: {
+          xs: '100%', // full width on small screens
+          sm: '45%',  // ~2 cards per row
+          md: '30%',  // ~3 cards per row
+        },
+      }}
+    >
+      <ProjectCard
+        project={project}
+        onDelete={handleDelete}
+        onEdit={(p) => {
+          setEditProject(p);
+          setDialogOpen(true);
+        }}
+      />
+    </Box>
+  ))}
+</Box>
+
         </Box>
       )}
 
