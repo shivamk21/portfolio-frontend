@@ -18,7 +18,22 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, onDelete, onEdit }: ProjectCardProps) {
   return (
     <Card>
-      <CardMedia component="img" height="140" image={project.imageUrl} alt={project.title} />
+      {/* <CardMedia component="img" height="140" image={project.imageUrl} alt={project.title} /> */}
+<CardMedia
+  component="img"
+  height="180"
+  image={project.imageUrl}
+  alt={project.title}
+sx={{
+  objectFit: 'contain',
+  width: '100%',
+  backgroundColor: '#c9f9b7ff' // Optional light background
+}}
+
+/>
+
+
+
       <CardContent>
         <Typography gutterBottom variant="h6">
           {project.title}
